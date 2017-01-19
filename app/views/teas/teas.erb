@@ -1,0 +1,6 @@
+<h2>Welcome, <%= current_user.username %>!</h2>
+<ol>
+<% @teas.each do |tea| %>
+ <li><a href="/teas/<%= tea.id %>"><%= tea.name %> | <%= tea.purchase_date %></a></li>
+<% end %>
+</ol>

@@ -1,18 +1,12 @@
 class UsersController < ApplicationController
   get '/signup' do
-    if logged_in?
-      redirect to "/teas"
-    else
-      erb :'users/create_user'
-    end
+    redirect to "/teas" if logged_in?
+    erb :'users/create_user'
   end
 
   get '/login' do
-    if logged_in?
-      redirect to "/teas"
-    else
-      erb :'users/login'
-    end
+    redirect to "/teas" if logged_in?
+    erb :'users/login'
   end
 
   post '/login' do

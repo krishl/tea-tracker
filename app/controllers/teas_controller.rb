@@ -14,4 +14,9 @@ class TeasController < ApplicationController
     flash[:message] = "Tea has been added."
     redirect to '/teas/'
   end
+
+  get '/teas/:id' do
+    @tea = Tea.find_by_id(params[:id])
+    erb :'teas/show_tea'
+  end
 end

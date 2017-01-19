@@ -46,4 +46,10 @@ class TeasController < ApplicationController
       redirect to "/login"
     end
   end
+
+  patch '/teas/:id' do
+    @tea = Tea.find_by_id(params[:id])
+    @tea.update(kind: params[:kind], purchase_date: params[:purchase_date], brew_time: params[:brew_time], temperature: params[:temperature], grams: params[:grams], servings: params[:servings], name: params[:name])
+    redirect to "/teas/#{@tea.id}"
+  end
 end

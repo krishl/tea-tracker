@@ -7,6 +7,17 @@ class UsersController < ApplicationController
     erb :'users/login'
   end
 
+  post '/login' do
+    @user = User.find_by(username: params[:username])
+    if @user && @user.authenticate(params[:password])
+      session[:id] = @user.id
+      redirect to "/teas"
+    else
+      flash[:message] = "Please double-check your login information!"
+      redirect to "/login"
+    end
+  end
+
   post '/signup' do
     @user = User.create(username: params[:username], email: params[:email], password: params[:password])
     if @user.valid?

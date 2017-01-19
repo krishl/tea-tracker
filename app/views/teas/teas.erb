@@ -1,6 +1,9 @@
 <h2>Welcome, <%= @user.username %>!</h2>
-<a href="/user/<%= @user.id %>">View Your Tea Collection</a>
+<a href="/user/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a>
 <hr>
+<% if flash.has?(:message) %>
+  <p><em><%= flash[:message] %></em></p>
+<% end %>
 <h3>Here's what other people have been drinking lately!</h3>
 <ol>
 <% @teas.each do |tea| %>

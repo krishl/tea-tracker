@@ -1,4 +1,6 @@
 <h1><%= @tea.name %></h1>
+<a href="/user/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a>
+<hr>
 <p>Type: <%= @tea.kind %></p>
 <p>Purchase Date: <%= @tea.purchase_date %></p>
 <p>Brew Time: <%= @tea.brew_time %></p>

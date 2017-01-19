@@ -1,4 +1,6 @@
 <h2>Create New Tea</h2>
+<a href="/user/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a>
+<hr>
 <form action="/teas/new" method="post">
   <p>Name: <input type="text" name="name" placeholder="name" required></p>
   <p>Type: <input type="text" name="kind" placeholder="e.g. green, black"></p>

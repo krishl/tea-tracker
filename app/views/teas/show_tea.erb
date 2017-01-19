@@ -7,4 +7,9 @@
 <p>Brew Temperature: <%= @tea.temperature %></p>
 <p>Grams per Serving: <%= @tea.servings %></p>
 
-<a href="/teas/<%= @tea.id %>/edit">Edit Entry</a>
+<p><a href="/teas/<%= @tea.id %>/edit">Edit Entry</a></p>
+
+<form action="/teas/<%= @tea.id %>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Tea">
+</form>

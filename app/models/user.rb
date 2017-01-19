@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
   has_secure_password
   has_many :teas
-  validates_presence_of :username
-  validates_presence_of :password
-  validates_presence_of :email
+  validates :username, uniqueness: true
+  validates :username, presence: true
+  validates :password, presence: true
+  validates :email, uniqueness: true
+  validates :email, presence: true
 
   def slug
     username.chomp.downcase.gsub(" ", "-")

@@ -1,5 +1,5 @@
 <h2>Welcome, <%= @user.username %>!</h2>
-<a href="/user/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a>
+<a href="/teas">Home</a> | <a href="/user/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a>
 <hr>
 <% if flash.has?(:message) %>
   <p><em><%= flash[:message] %></em></p>

@@ -55,7 +55,7 @@ class TeasController < ApplicationController
         erb :'teas/edit_tea'
       else
         flash[:message] = "Cannot edit another user's tea entry."
-        redirect to "/tea"
+        redirect to "/teas"
       end
     else
       flash[:message] = "You are not logged in."

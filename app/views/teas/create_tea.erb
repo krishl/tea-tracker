@@ -1,7 +1,7 @@
 <h2>Create New Tea</h2>
 <a href="/teas">Home</a> | <a href="/users/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a>
 <hr>
-<form action="/teas/new" method="post">
+<form action="/teas" method="post">
   <p>Name: <input type="text" name="name" placeholder="name" required></p>
   <p>Type: <input type="text" name="kind" placeholder="e.g. green, black"></p>
   <p>Purchase Date: <input type="text" name="purchase_date" placeholder="yyyy/mm/dd"></p>

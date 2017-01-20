@@ -45,6 +45,7 @@ class UsersController < ApplicationController
     if logged_in?
       @user = User.find_by_id(params[:id])
       if @user
+        @users_teas = @user.teas
         erb :'users/show'
       else
         redirect to "/teas"

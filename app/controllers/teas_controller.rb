@@ -20,7 +20,7 @@ class TeasController < ApplicationController
 
   post '/teas' do
     if logged_in?
-      @tea = current_user.items.build(kind: params[:kind], purchase_date: params[:purchase_date], brew_time: params[:brew_time], temperature: params[:temperature], grams: params[:grams], servings: params[:servings], name: params[:name], user_id: current_user.id)
+      @tea = current_user.teas.build(kind: params[:kind], purchase_date: params[:purchase_date], brew_time: params[:brew_time], temperature: params[:temperature], grams: params[:grams], servings: params[:servings], name: params[:name], user_id: current_user.id)
       if @tea.save
         flash[:message] = "Tea has been added."
         redirect to "users/#{current_user.id}"

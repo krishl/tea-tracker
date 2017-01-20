@@ -31,4 +31,17 @@ class UsersController < ApplicationController
       redirect to "/signup"
     end
   end
+
+  get '/users/:id' do
+    if logged_in?
+      @user = User.find_by_id(params[:id])
+      if @user
+        erb :'users/show'
+      else
+        redirect to "/teas"
+      end
+    else
+      redirect to "/"
+    end
+  end
 end

@@ -18,7 +18,7 @@ class TeasController < ApplicationController
     end
   end
 
-  post '/teas/new' do
+  post '/teas' do
     @tea = Tea.create(kind: params[:kind], purchase_date: params[:purchase_date], brew_time: params[:brew_time], temperature: params[:temperature], grams: params[:grams], servings: params[:servings], name: params[:name], user_id: current_user.id)
     flash[:message] = "Tea has been added."
     redirect to '/teas'

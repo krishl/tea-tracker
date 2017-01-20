@@ -1,5 +1,5 @@
 <h2>Edit <%= @tea.name %></h2>
-<a href="/teas">Home</a> | <a href="/user/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a>
+<a href="/teas">Home</a> | <a href="/users/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a>
 <hr>
 <form action="/teas/<%= @tea.id %>" method="post">
   <input type="hidden" id="hidden" name="_method" value="patch">

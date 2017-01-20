@@ -6,13 +6,19 @@
   <link rel="stylesheet" href="/stylesheets/styles.css">
 </head>
 <body>
-  <h2><%= @user.username %>'s Teas</h2>
-  <a href="/teas">Home</a> | <a href="/users/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a> | <a href="/logout">Log Out</a>
-  <hr>
-  <ol>
-  <% @users_teas.each do |tea| %>
-   <li><a href="/teas/<%= tea.id %>"><%= tea.name %> <%="| Purchased #{tea.purchase_date}" if tea.purchase_date %></a></li>
-  <% end %>
-  </ol>
+  <div id="wrapper">
+    <div id="content">
+      <div id="page">
+        <h2><%= @user.username %>'s Teas</h2>
+        <a href="/teas">Home</a> | <a href="/users/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a> | <a href="/logout">Log Out</a>
+        <hr>
+        <ol>
+        <% @users_teas.each do |tea| %>
+         <li><a href="/teas/<%= tea.id %>"><%= tea.name %> <%="| Purchased #{tea.purchase_date}" if tea.purchase_date %></a></li>
+        <% end %>
+        </ol>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

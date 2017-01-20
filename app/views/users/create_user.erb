@@ -6,15 +6,21 @@
   <link rel="stylesheet" href="/stylesheets/styles.css">
 </head>
 <body>
-  <h2>Sign up here!</h2>
-  <% if flash.has?(:message) %>
-    <p><em><%= flash[:message] %></em></p>
-  <% end %>
-  <form action="/users" method="post">
-    <p>Username: <input type="text" name="username" placeholder="username"></p>
-    <p>Password: <input type="password" name="password" placeholder="password"></p>
-    <p>Email: <input type="text" name="email" placeholder="email"></p>
-    <p><input type="submit" value="Sign Up"></p>
-  </form>
+  <div id="wrapper">
+    <div id="content">
+      <div id="page">
+        <h2>Sign up here!</h2>
+        <% if flash.has?(:message) %>
+          <p><em><%= flash[:message] %></em></p>
+        <% end %>
+        <form action="/users" method="post">
+          <p>Username: <input type="text" name="username" placeholder="username"></p>
+          <p>Password: <input type="password" name="password" placeholder="password"></p>
+          <p>Email: <input type="text" name="email" placeholder="email"></p>
+          <p><input type="submit" value="Sign Up"></p>
+        </form>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

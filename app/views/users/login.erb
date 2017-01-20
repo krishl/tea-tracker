@@ -6,14 +6,20 @@
   <link rel="stylesheet" href="/stylesheets/styles.css">
 </head>
 <body>
-  <h2>Log in here!</h2>
-  <% if flash.has?(:message) %>
-    <p><em><%= flash[:message] %></em></p>
-  <% end %>
-  <form action="/login" method="post">
-    <p>Username: <input type="text" name="username" placeholder="username"></p>
-    <p>Password: <input type="password" name="password" placeholder="password"></p>
-    <p><input type="submit" value="Log In"></p>
-  </form>
+  <div id="wrapper">
+    <div id="content">
+      <div id="page">
+        <h2>Log in here!</h2>
+        <% if flash.has?(:message) %>
+          <p><em><%= flash[:message] %></em></p>
+        <% end %>
+        <form action="/login" method="post">
+          <p>Username: <input type="text" name="username" placeholder="username"></p>
+          <p>Password: <input type="password" name="password" placeholder="password"></p>
+          <p><input type="submit" value="Log In"></p>
+        </form>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

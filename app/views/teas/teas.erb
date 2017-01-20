@@ -17,9 +17,9 @@
         <% end %>
         <h3>Here's what other people have been drinking lately!</h3>
         <ol>
-        <% @teas.reverse.each do |tea| %>
-         <li><a href="/teas/<%= tea.id %>"><%= tea.name %></a></li>
-        <% end %>
+          <% @teas.reverse.first(15).each do |tea| %>
+            <li><a href="/teas/<%= tea.id %>"><%= tea.name %></a></li>
+          <% end %>
         </ol>
       </div>
     </div>

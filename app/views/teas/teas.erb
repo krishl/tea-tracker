@@ -13,7 +13,7 @@
         <a href="/teas">Home</a> | <a href="/users/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a> | <a href="/logout">Log Out</a></center>
         <hr>
         <% if flash.has?(:message) %>
-          <p><em><%= flash[:message] %></em></p>
+          <p><font color="red"><em><%= flash[:message] %></em></font></p>
         <% end %>
         <h3>Here's what other people have been drinking lately!</h3>
         <ol>

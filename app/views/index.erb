@@ -12,7 +12,7 @@
         <h1>Welcome to Tea Tracker!</h1>
         <h3>Sign up or log in to manage your tea.</h3>
         <% if flash.has?(:message) %>
-          <p><em><%= flash[:message] %></em></p>
+          <p><font color="red"><em><%= flash[:message] %></em></font></p>
         <% end %>
         <p><a href="/users/new">Sign Up</a> | <a href="/login">Log In</a></p>
       </div>

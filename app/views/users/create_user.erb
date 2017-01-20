@@ -11,7 +11,7 @@
       <div id="page">
         <h2>Sign up here!</h2>
         <% if flash.has?(:message) %>
-          <p><em><%= flash[:message] %></em></p>
+          <p><font color="red"><em><%= flash[:message] %></em></font></p>
         <% end %>
         <form action="/users" method="post">
           <p>Username: <input type="text" name="username" placeholder="username"></p>

@@ -5,9 +5,10 @@ This is an tool designed for tea lovers who would like an easier way to keep tra
 ## Installation
 1. Clone or download Tea Tracker.
 2. Navigate to Tea Tracker's folder in Terminal
-3. Run `bundle install`
-4. Run `shotgun`
-5. Open the url given by `shotgun` in your internet browser.
+3. Run `gem install bundler`
+4. Run `bundle install`
+5. Run `shotgun`
+6. Open the url given by `shotgun` in your internet browser.
 
 ## Contributing
 

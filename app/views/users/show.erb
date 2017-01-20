@@ -1,5 +1,5 @@
 <h2><%= @user.username %>'s Teas</h2>
-<a href="/teas">Home</a> | <a href="/users/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a>
+<a href="/teas">Home</a> | <a href="/users/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a> | <a href="/logout">Log Out</a>
 <hr>
 <ol>
 <% @users_teas.each do |tea| %>

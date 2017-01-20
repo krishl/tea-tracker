@@ -9,8 +9,8 @@
   <div id="wrapper">
     <div id="content">
       <div id="page">
-        <h2>Create New Tea</h2>
-        <a href="/teas">Home</a> | <a href="/users/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a> | <a href="/logout">Log Out</a>
+        <center><h2>Create New Tea</h2>
+        <a href="/teas">Home</a> | <a href="/users/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a> | <a href="/logout">Log Out</a><center>
         <hr>
         <form action="/teas" method="post">
           <p>Name: <input type="text" name="name" placeholder="name" required></p>

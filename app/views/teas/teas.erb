@@ -9,8 +9,8 @@
   <div id="wrapper">
     <div id="content">
       <div id="page">
-        <h2>Welcome, <%= @user.username %>!</h2>
-        <a href="/teas">Home</a> | <a href="/users/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a> | <a href="/logout">Log Out</a>
+        <center><h2>Welcome, <%= @user.username %>!</h2>
+        <a href="/teas">Home</a> | <a href="/users/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a> | <a href="/logout">Log Out</a></center>
         <hr>
         <% if flash.has?(:message) %>
           <p><em><%= flash[:message] %></em></p>

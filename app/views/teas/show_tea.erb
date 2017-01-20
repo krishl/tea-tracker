@@ -9,8 +9,8 @@
   <div id="wrapper">
     <div id="content">
       <div id="page">
-        <h1><%= @tea.name %></h1>
-        <a href="/teas">Home</a> | <a href="/users/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a> | <a href="/logout">Log Out</a>
+        <center><h1><%= @tea.name %></h1>
+        <a href="/teas">Home</a> | <a href="/users/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a> | <a href="/logout">Log Out</a></center>
         <hr>
         <p>Type: <%= @tea.kind %></p>
         <p>Purchase Date: <%= @tea.purchase_date %></p>

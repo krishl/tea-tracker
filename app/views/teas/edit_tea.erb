@@ -6,18 +6,24 @@
   <link rel="stylesheet" href="/stylesheets/styles.css">
 </head>
 <body>
-  <h2>Edit <%= @tea.name %></h2>
-  <a href="/teas">Home</a> | <a href="/users/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a> | <a href="/logout">Log Out</a>
-  <hr>
-  <form action="/teas/<%= @tea.id %>" method="post">
-    <input type="hidden" id="hidden" name="_method" value="patch">
-    <p>Name: <input type="text" name="name" placeholder="name" value="<%= @tea.name %>" required></p>
-    <p>Type: <input type="text" name="kind" placeholder="e.g. green, black" value="<%= @tea.kind %>"></p>
-    <p>Purchase Date: <input type="text" name="purchase_date" placeholder="yyyy/mm/dd" value="<%= @tea.purchase_date %>"></p>
-    <p>Brew Time: <input type="text" name="brew_time" placeholder="e.g. 3 min" value="<%= @tea.brew_time %>"></p>
-    <p>Brew Temperature: <input type="text" name="temperature" placeholder="e.g. 180 F" value="<%= @tea.temperature %>"></p>
-    <p>Leaves per Serving: <input type="text" name="servings" placeholder="e.g. 3g, 1 tbsp" value="<%= @tea.servings %>"></p>
-    <p><input type="submit" value="Edit Tea"></p>
-  </form>
+  <div id="wrapper">
+    <div id="content">
+      <div id="page">
+        <h2>Edit <%= @tea.name %></h2>
+        <a href="/teas">Home</a> | <a href="/users/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a> | <a href="/logout">Log Out</a>
+        <hr>
+        <form action="/teas/<%= @tea.id %>" method="post">
+          <input type="hidden" id="hidden" name="_method" value="patch">
+          <p>Name: <input type="text" name="name" placeholder="name" value="<%= @tea.name %>" required></p>
+          <p>Type: <input type="text" name="kind" placeholder="e.g. green, black" value="<%= @tea.kind %>"></p>
+          <p>Purchase Date: <input type="text" name="purchase_date" placeholder="yyyy/mm/dd" value="<%= @tea.purchase_date %>"></p>
+          <p>Brew Time: <input type="text" name="brew_time" placeholder="e.g. 3 min" value="<%= @tea.brew_time %>"></p>
+          <p>Brew Temperature: <input type="text" name="temperature" placeholder="e.g. 180 F" value="<%= @tea.temperature %>"></p>
+          <p>Leaves per Serving: <input type="text" name="servings" placeholder="e.g. 3g, 1 tbsp" value="<%= @tea.servings %>"></p>
+          <p><input type="submit" value="Edit Tea"></p>
+        </form>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

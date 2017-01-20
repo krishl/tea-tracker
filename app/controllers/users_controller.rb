@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  get '/signup' do
+  get '/users/new' do
     redirect to "/teas" if logged_in?
     erb :'users/create_user'
   end
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     end
   end
 
-  post '/signup' do
+  post '/users' do
     @user = User.create(username: params[:username], email: params[:email], password: params[:password])
     if @user.valid?
       session[:id] = @user.id

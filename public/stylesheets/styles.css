@@ -29,6 +29,7 @@ body {
   clear: both;
   width: 500px !important;
   width: 100%;
-
-  padding: 2em 50px;
+  border-style: dotted;
+  border-color: green;
+  padding: 10px 50px;
 }

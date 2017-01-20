@@ -5,6 +5,7 @@ class TeasController < ApplicationController
       @teas = Tea.all
       erb :'teas/teas'
     else
+      flash[:message] = "You are not logged in."
       redirect to "/login"
     end
   end
@@ -14,6 +15,7 @@ class TeasController < ApplicationController
       @user = current_user
       erb :'teas/create_tea'
     else
+      flash[:message] = "You are not logged in."
       redirect to "/login"
     end
   end
@@ -25,9 +27,11 @@ class TeasController < ApplicationController
         flash[:message] = "Tea has been added."
         redirect to "users/#{current_user.id}"
       else
+        flash[:message] = "'Name' field is required."
         redirect to '/teas/new'
       end
     else
+      flash[:message] = "You are not logged in."
       redirect to "/login"
     end
   end
@@ -38,6 +42,7 @@ class TeasController < ApplicationController
       @tea = Tea.find_by_id(params[:id])
       erb :'teas/show_tea'
     else
+      flash[:message] = "You are not logged in."
       redirect to "/login"
     end
   end
@@ -49,9 +54,11 @@ class TeasController < ApplicationController
       if @tea.user_id == current_user.id
         erb :'teas/edit_tea'
       else
+        flash[:message] = "Cannot edit another user's tea entry."
         redirect to "/tea"
       end
     else
+      flash[:message] = "You are not logged in."
       redirect to "/login"
     end
   end
@@ -59,6 +66,7 @@ class TeasController < ApplicationController
   patch '/teas/:id' do
     @tea = Tea.find_by_id(params[:id])
     @tea.update(kind: params[:kind], purchase_date: params[:purchase_date], brew_time: params[:brew_time], temperature: params[:temperature], grams: params[:grams], servings: params[:servings], name: params[:name])
+    flash[:message] = "Successfully edited tea entry!"
     redirect to "/teas/#{@tea.id}"
   end
 

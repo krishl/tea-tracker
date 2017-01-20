@@ -1,0 +1,8 @@
+body {
+   background-color: #D0F0BF;
+   background-image: url("../images/cup.png");
+   background-position: right bottom;
+   background-size: 300px 300px;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+}

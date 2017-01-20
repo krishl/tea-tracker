@@ -1,15 +1,25 @@
-<h1><%= @tea.name %></h1>
-<a href="/teas">Home</a> | <a href="/users/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a> | <a href="/logout">Log Out</a>
-<hr>
-<p>Type: <%= @tea.kind %></p>
-<p>Purchase Date: <%= @tea.purchase_date %></p>
-<p>Brew Time: <%= @tea.brew_time %></p>
-<p>Brew Temperature: <%= @tea.temperature %></p>
-<p>Grams per Serving: <%= @tea.servings %></p>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>View Tea - Tea Tracker</title>
+  <link rel="stylesheet" href="/stylesheets/styles.css">
+</head>
+<body>
+  <h1><%= @tea.name %></h1>
+  <a href="/teas">Home</a> | <a href="/users/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a> | <a href="/logout">Log Out</a>
+  <hr>
+  <p>Type: <%= @tea.kind %></p>
+  <p>Purchase Date: <%= @tea.purchase_date %></p>
+  <p>Brew Time: <%= @tea.brew_time %></p>
+  <p>Brew Temperature: <%= @tea.temperature %></p>
+  <p>Grams per Serving: <%= @tea.servings %></p>
 
-<p><a href="/teas/<%= @tea.id %>/edit">Edit Entry</a></p>
+  <p><a href="/teas/<%= @tea.id %>/edit">Edit Entry</a></p>
 
-<form action="/teas/<%= @tea.id %>/delete" method="post">
-  <input id="hidden" type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete Tea">
-</form>
+  <form action="/teas/<%= @tea.id %>/delete" method="post">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Tea">
+  </form>
+</body>
+</html>

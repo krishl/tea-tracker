@@ -6,17 +6,23 @@
   <link rel="stylesheet" href="/stylesheets/styles.css">
 </head>
 <body>
-  <h2>Welcome, <%= @user.username %>!</h2>
-  <a href="/teas">Home</a> | <a href="/users/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a> | <a href="/logout">Log Out</a>
-  <hr>
-  <% if flash.has?(:message) %>
-    <p><em><%= flash[:message] %></em></p>
-  <% end %>
-  <h3>Here's what other people have been drinking lately!</h3>
-  <ol>
-  <% @teas.reverse.each do |tea| %>
-   <li><a href="/teas/<%= tea.id %>"><%= tea.name %></a></li>
-  <% end %>
-  </ol>
+  <div id="wrapper">
+    <div id="content">
+      <div id="page">
+      <h2>Welcome, <%= @user.username %>!</h2>
+      <a href="/teas">Home</a> | <a href="/users/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a> | <a href="/logout">Log Out</a>
+      <hr>
+      <% if flash.has?(:message) %>
+        <p><em><%= flash[:message] %></em></p>
+      <% end %>
+      <h3>Here's what other people have been drinking lately!</h3>
+      <ol>
+      <% @teas.reverse.each do |tea| %>
+       <li><a href="/teas/<%= tea.id %>"><%= tea.name %></a></li>
+      <% end %>
+      </ol>
+    </div>
+    </div>
+  </div>
 </body>
 </html>

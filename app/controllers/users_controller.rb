@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   post '/login' do
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
-      session[:id] = @user.id
+      session[:user_id] = @user.id
       flash[:message] = "Successfully logged in."
       redirect to "/teas"
     else
@@ -30,9 +30,9 @@ class UsersController < ApplicationController
   end
 
   post '/users' do
-    @user = User.create(username: params[:username], email: params[:email], password: params[:password])
-    if @user.valid?
-      session[:id] = @user.id
+    @user = User.new(username: params[:username], email: params[:email], password: params[:password])
+    if @user.save
+      session[:user_id] = @user.id
       flash[:message] = "Sign up successful!"
       redirect to "/teas"
     else

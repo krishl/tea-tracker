@@ -1,28 +1,20 @@
 class TeasController < ApplicationController
   get '/teas' do
     if logged_in?
-      @user = current_user
       @teas = Tea.all
       erb :'teas/teas'
-    else
-      flash[:message] = "You are not logged in."
-      redirect to "/login"
     end
   end
 
   get '/teas/new' do
     if logged_in?
-      @user = current_user
       erb :'teas/create_tea'
-    else
-      flash[:message] = "You are not logged in."
-      redirect to "/login"
     end
   end
 
   post '/teas' do
     if logged_in?
-      @tea = current_user.teas.build(kind: params[:kind], purchase_date: params[:purchase_date], brew_time: params[:brew_time], temperature: params[:temperature], grams: params[:grams], servings: params[:servings], name: params[:name], user_id: current_user.id)
+      @tea = current_user.teas.build(tea_params)
       if @tea.save
         flash[:message] = "Tea has been added."
         redirect to "users/#{current_user.id}"
@@ -30,26 +22,18 @@ class TeasController < ApplicationController
         flash[:message] = "'Name' field is required."
         redirect to '/teas/new'
       end
-    else
-      flash[:message] = "You are not logged in."
-      redirect to "/login"
     end
   end
 
   get '/teas/:id' do
     if logged_in?
-      @user = current_user
       @tea = Tea.find_by_id(params[:id])
       erb :'teas/show_tea'
-    else
-      flash[:message] = "You are not logged in."
-      redirect to "/login"
     end
   end
 
   get '/teas/:id/edit' do
     if logged_in?
-      @user = current_user
       @tea = Tea.find_by_id(params[:id])
       if @tea.user_id == current_user.id
         erb :'teas/edit_tea'
@@ -57,15 +41,12 @@ class TeasController < ApplicationController
         flash[:message] = "Cannot edit another user's tea entry."
         redirect to "/teas"
       end
-    else
-      flash[:message] = "You are not logged in."
-      redirect to "/login"
     end
   end
 
   patch '/teas/:id' do
     @tea = Tea.find_by_id(params[:id])
-    @tea.update(kind: params[:kind], purchase_date: params[:purchase_date], brew_time: params[:brew_time], temperature: params[:temperature], grams: params[:grams], servings: params[:servings], name: params[:name])
+    @tea.update(tea_params)
     flash[:message] = "Successfully edited tea entry!"
     redirect to "/teas/#{@tea.id}"
   end
@@ -73,7 +54,7 @@ class TeasController < ApplicationController
   delete '/teas/:id/delete' do
     if logged_in?
       @tea = Tea.find_by_id(params[:id])
-      if @tea.user_id == current_user.id
+      if @tea.user == current_user
         @tea.destroy
         flash[:message] = "Successfully deleted tea entry!"
         redirect to "/teas"
@@ -81,9 +62,20 @@ class TeasController < ApplicationController
         flash[:message] = "Cannot delete another user's tea entry."
         redirect to "/teas"
       end
-    else
-      flash[:message] = "You are not logged in."
-      redirect to "/login"
     end
   end
+
+  private
+
+    def tea_params
+      {
+        kind: params[:kind],
+        purchase_date: params[:purchase_date],
+        brew_time: params[:brew_time],
+        temperature: params[:temperature],
+        grams: params[:grams],
+        servings: params[:servings],
+        name: params[:name]
+      }
+    end
 end

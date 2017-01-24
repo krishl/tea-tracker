@@ -10,7 +10,7 @@
     <div id="content">
       <div id="page">
         <center><h2>Edit <%= @tea.name %></h2>
-        <a href="/teas">Home</a> | <a href="/users/<%= @user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a> | <a href="/logout">Log Out</a></center>
+        <a href="/teas">Home</a> | <a href="/users/<%= current_user.id %>">View Your Tea Collection</a> | <a href="/teas/new">Create New Tea Entry</a> | <a href="/logout">Log Out</a></center>
         <hr>
         <form action="/teas/<%= @tea.id %>" method="post">
           <input type="hidden" id="hidden" name="_method" value="patch">

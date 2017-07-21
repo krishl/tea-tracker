@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   get '/users/new' do
-    if logged_in?
+    if !!current_user
       flash[:message] = "You are already logged in."
       redirect to "/teas"
     else
@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   get '/login' do
-    if logged_in?
+    if !!current_user
       flash[:message] = "You are already logged in."
       redirect to "/teas"
     else

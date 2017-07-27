@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170119090640) do
+ActiveRecord::Schema.define(version: 20170727035518) do
 
   create_table "teas", force: :cascade do |t|
     t.string  "kind"
-    t.date    "purchase_date"
+    t.string  "purchase_date"
     t.string  "brew_time"
     t.string  "temperature"
     t.string  "grams"

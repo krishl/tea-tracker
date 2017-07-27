@@ -14,7 +14,7 @@
         <hr>
         <ol>
         <% @users_teas.each do |tea| %>
-         <li><a href="/teas/<%= tea.id %>"><%= tea.name %> <%="| Purchased #{tea.purchase_date}" if tea.purchase_date %></a></li>
+         <li><a href="/teas/<%= tea.id %>"><%= tea.name %> <%="| Purchased #{tea.purchase_date}" if tea.purchase_date.present? %></a></li>
         <% end %>
         </ol>
       </div>

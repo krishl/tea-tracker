@@ -18,8 +18,8 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    @user = User.find_by(username: params[:username])
-    if @user && @user.authenticate(params[:password])
+    @user = User.find_by(username: params[:username])   # finds user by username param
+    if @user && @user.authenticate(params[:password])   # checks if login info is valid
       session[:user_id] = @user.id
       flash[:message] = "Successfully logged in."
       redirect to "/teas"
@@ -31,11 +31,11 @@ class UsersController < ApplicationController
 
   post '/users' do
     @user = User.new(username: params[:username], email: params[:email], password: params[:password])
-    if @user.save
+    if @user.save  
       session[:user_id] = @user.id
       flash[:message] = "Sign up successful!"
       redirect to "/teas"
-    else
+    else    
       flash[:message] = "Please complete the form!"
       redirect to "/users/new"
     end

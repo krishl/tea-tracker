@@ -30,12 +30,12 @@ class UsersController < ApplicationController
   end
 
   post '/users' do
-    @user = User.new(username: params[:username], email: params[:email], password: params[:password])
-    if @user.save  
+    @user = User.new(username: params[:username], email: params[:email], password: params[:password])   # creates new user
+    if @user.save    # attempt to save new user
       session[:user_id] = @user.id
       flash[:message] = "Sign up successful!"
       redirect to "/teas"
-    else    
+    else    # executes if new user does not pass validations
       flash[:message] = "Please complete the form!"
       redirect to "/users/new"
     end

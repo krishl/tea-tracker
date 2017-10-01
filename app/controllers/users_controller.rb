@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  get '/users/new' do
+  get '/users/new' do   # redirects to teas page if user is already logged in
     if !!current_user
       flash[:message] = "You are already logged in."
       redirect to "/teas"
